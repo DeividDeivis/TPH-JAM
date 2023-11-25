@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // Controllers
-    [SerializeField] private MovementSystem2D Movecontroller; // Se usa el Script Plataforma2D como referencia.	
+    [SerializeField] private MovementSystem2D MoveController; // Se usa el Script Plataforma2D como referencia.	
 
     [Header("Character Stats")]
     [SerializeField] private float moveSpeed = 40f;
@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private float idleTime;
     private float currentIdle;
+    [SerializeField] private float blinkTime;
+    private float currentBlink;
 
     [Header("Player Actions Permition")]
     public bool movement; // movement = can player move?
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         //m_FootStepInstance = RuntimeManager.CreateInstance(m_FootStepEventRef);
         currentIdle = idleTime;
+        currentBlink = blinkTime;
     }
 
     // Update is called once per frame    
@@ -47,6 +50,8 @@ public class PlayerController : MonoBehaviour
         {   // Si el movimiento esta activado, habilita las animaciones.
             horizontalMove = m_MovementX * moveSpeed; // Varia entre -1 y 1. Funciona para teclado o joystick, ver Conf del proyecto.
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            animator.SetBool("Jump", m_IsJump);
+            animator.SetBool("Landing", MoveController.m_InGround);
 
             /*if (Mathf.Abs(horizontalMove) > 0)
             {
@@ -64,6 +69,15 @@ public class PlayerController : MonoBehaviour
                 animator.SetTrigger("LookAround");
                 currentIdle = idleTime;
             }
+
+            //Blink Anim
+            if (currentBlink > 0)
+                currentBlink -= Time.deltaTime;
+            else
+            {
+                animator.SetTrigger("Blink");
+                currentBlink = blinkTime;
+            }
         }
     }
 
@@ -72,7 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         if (movement == true)
         {
-            Movecontroller.Move(horizontalMove * Time.fixedDeltaTime, m_IsJump);
+            MoveController.Move(horizontalMove * Time.fixedDeltaTime, m_IsJump);
             m_IsJump = false;
         }
     }
@@ -90,9 +104,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnLanding()
-    {          
-        animator.SetBool("Jump", false);
-        animator.SetBool("Landing", true);
+    {
+        animator.SetBool("Jump", false);    
     }
 
     private void Die()
