@@ -6,8 +6,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private PlayerType m_Player;
     // Controllers
-    [SerializeField] private MovementSystem2D MoveController; // Se usa el Script Plataforma2D como referencia.	
+    [SerializeField] private MovementSystem2D MoveController; 
+    [SerializeField] private InteractionSystem InteractionController;
 
     [Header("Character Stats")]
     [SerializeField] private float moveSpeed = 40f;
@@ -32,7 +34,6 @@ public class PlayerController : MonoBehaviour
     private float curretStep;
     [Header("Damage SFX")]
     [SerializeField] private EventReference m_DeadSfx;*/
-
 
     void Start()
     {
@@ -103,6 +104,19 @@ public class PlayerController : MonoBehaviour
         currentIdle = idleTime;
     }
 
+    public void OnSinging(InputAction.CallbackContext context) 
+    {
+        RuneType runeSing = RuneType.Rune1;
+
+        switch (context.action.name) 
+        {
+            case "Sing 1": runeSing = RuneType.Rune1; break;
+            case "Sing 2": runeSing = RuneType.Rune2; break;
+            case "Sing 3": runeSing = RuneType.Rune3; break;
+        }
+        context.action.started += (ctx) => InteractionController.Interaction(m_Player, runeSing);       
+    }
+
     public void OnLanding()
     {
         animator.SetBool("Jump", false);    
@@ -134,3 +148,5 @@ public class PlayerController : MonoBehaviour
         }
     }*/
 }
+
+public enum PlayerType { Player1, Player2 }

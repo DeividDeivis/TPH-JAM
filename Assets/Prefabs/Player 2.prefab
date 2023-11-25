@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2987371956559215204, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: m_Player
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4475037678545542880, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
       propertyPath: initialSkinName
       value: Orange
