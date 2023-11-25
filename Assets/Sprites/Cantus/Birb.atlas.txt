@@ -1,0 +1,53 @@
+Birb.png
+size:1245,401
+filter:Linear,Linear
+pma:true
+Beack Open 1
+bounds:459,5,97,90
+Beack Open 1 orange
+bounds:360,5,97,90
+Beack Open 2
+bounds:725,131,84,71
+Beack Open 2 Orange
+bounds:558,16,84,71
+rotate:90
+Beak Close
+bounds:659,11,132,115
+Body
+bounds:2,2,192,397
+Eye 1
+bounds:1133,229,54,84
+Eye 1 orange
+bounds:1133,315,54,84
+Eye 2
+bounds:1189,229,54,84
+Eye 2 orange
+bounds:1189,315,54,84
+Eye Closed 1
+bounds:559,103,48,23
+Eye Closed 1 orange
+bounds:310,26,48,23
+Eye Closed 2
+bounds:631,53,48,23
+rotate:90
+Eye Closed 2 orange
+bounds:609,103,48,23
+Leg 1
+bounds:196,5,44,112
+rotate:90
+Leg 2
+bounds:196,5,44,112
+rotate:90
+Tail
+bounds:196,51,157,348
+Tail Resting
+bounds:559,128,271,164
+rotate:90
+Wing 1
+bounds:725,204,406,195
+Wing 2
+bounds:811,7,406,195
+Wing Close 1
+bounds:355,97,126,302
+Wing Close 2
+bounds:483,102,74,297
