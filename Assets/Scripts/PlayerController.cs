@@ -114,7 +114,9 @@ public class PlayerController : MonoBehaviour
             case "Sing 2": runeSing = RuneType.Rune2; break;
             case "Sing 3": runeSing = RuneType.Rune3; break;
         }
-        context.action.started += (ctx) => InteractionController.Interaction(m_Player, runeSing);       
+        context.action.started += (ctx) => InteractionController.Interaction(m_Player, runeSing);
+
+        animator.SetTrigger("Sing");
     }
 
     public void OnLanding()
