@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class InteractionSystem : MonoBehaviour
 {
+    [SerializeField] private Sprite runeSrite;
     [SerializeField] private List<RuneInfo> playerRunes;
 
     [SerializeField] private LayerMask m_WhatIsInteractable;        // Layer de los objetos interactuables.
@@ -27,6 +28,6 @@ public class InteractionSystem : MonoBehaviour
 public class RuneInfo 
 {    
     public RuneType runeSinged;
-    public Sprite runeSrite;
+    public Color runeColor;
     public string runeSfx;
 }

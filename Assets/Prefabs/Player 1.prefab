@@ -175,8 +175,8 @@ MonoBehaviour:
   translator:
     autoReset: 1
     useCustomMixMode: 1
-    layerMixModes: 0100000000000000
-    layerBlendModes: 0100000003000000
+    layerMixModes: 010000000000000000000000
+    layerBlendModes: 010000000300000003000000
   updateTiming: 1
 --- !u!1 &7825442981486416670
 GameObject:
@@ -288,15 +288,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18357fb2e2cd6bd4494ad9630a95d1e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runeSrite: {fileID: 21300000, guid: 14651334047bbee4b9a365519fed4ac5, type: 3}
   playerRunes:
   - runeSinged: 0
-    runeSrite: {fileID: 0}
+    runeColor: {r: 0.64705884, g: 1, b: 0.38823533, a: 1}
     runeSfx: 
   - runeSinged: 1
-    runeSrite: {fileID: 0}
+    runeColor: {r: 1, g: 0.62352943, b: 0.38823533, a: 1}
     runeSfx: 
   - runeSinged: 2
-    runeSrite: {fileID: 0}
+    runeColor: {r: 0.35686275, g: 0.67058825, b: 0.7372549, a: 1}
     runeSfx: 
   m_WhatIsInteractable:
     serializedVersion: 2
@@ -426,10 +427,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 780b877531eaa6744a81d5bc8276c3a0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -449,7 +450,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 7825442981486416670}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 780b877531eaa6744a81d5bc8276c3a0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
