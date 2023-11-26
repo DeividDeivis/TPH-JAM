@@ -16,6 +16,18 @@ PrefabInstance:
       propertyPath: initialSkinName
       value: Orange
       objectReference: {fileID: 0}
+    - target: {fileID: 5664513641613745563, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 00bad7942d12af9468b4e20f53d5025b, type: 3}
+    - target: {fileID: 5664513641613745563, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: m_Color.g
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664513641613745563, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6316129755146340806, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
       propertyPath: m_DefaultControlScheme
       value: Gamepad

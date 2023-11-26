@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class InteractionSystem : MonoBehaviour
 {
-    [SerializeField] private Sprite runeSrite;
+    [SerializeField] private SpriteRenderer runeSprite;
     [SerializeField] private List<RuneInfo> playerRunes;
 
     [SerializeField] private LayerMask m_WhatIsInteractable;        // Layer de los objetos interactuables.
@@ -19,8 +20,26 @@ public class InteractionSystem : MonoBehaviour
 
         if (collider != null && collider.gameObject.tag == "Switcher")
         {
-            collider.GetComponent<PlatformSwitcher>().ActiveSwitch(playerSing, runeSing);
+            collider.GetComponent<PlatformSwitcher>().ActiveSwitch(playerSing, runeSing);           
         }
+
+        RuneInfo info = playerRunes.Find(info => info.runeSinged == runeSing);
+        RuneAnim(info);
+    }
+
+    private void RuneAnim(RuneInfo info) 
+    {
+        runeSprite.color = new Color(info.runeColor.r, info.runeColor.g, info.runeColor.b, 0f);
+        runeSprite.transform.localScale = Vector3.zero;
+
+        DOTween.Sequence().SetEase(Ease.Linear).SetAutoKill(true)
+            .Append(runeSprite.transform.DOScale(Vector3.one, 1))
+            .Join(runeSprite.DOFade(1, .25f))
+            .Append(runeSprite.DOFade(0, .25f))
+            .OnComplete(() => {
+                runeSprite.color = new Color(1f, 1f, 1f, 0f);
+                runeSprite.transform.localScale = Vector3.zero;
+            });
     }
 }
 

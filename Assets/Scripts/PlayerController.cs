@@ -28,13 +28,15 @@ public class PlayerController : MonoBehaviour
     private float m_MovementX;
     private float horizontalMove = 0f;
 
+    [Header("Player Interaction Parameters")]
+    [SerializeField] private float interactionCD = 2;
+    private bool waitToInteract = false;
+
     /*[Header("Walk SFX")]
     [SerializeField] private EventReference m_FootStepEventRef;
     private EventInstance m_FootStepInstance;
     [SerializeField] private float m_FootStepTime;
-    private float curretStep;
-    [Header("Damage SFX")]
-    [SerializeField] private EventReference m_DeadSfx;*/
+    private float curretStep;*/
 
     void Start()
     {
@@ -103,22 +105,29 @@ public class PlayerController : MonoBehaviour
         //m_IsJump = context.ReadValue<bool>();
         m_IsJump = context.action.triggered;
         currentIdle = idleTime;
-        AudioManager.Instance.PlaySFX("Jump"); ;
+        AudioManager.Instance.PlaySFX("Jump");
     }
 
     public void OnSinging(InputAction.CallbackContext context) 
     {
-        RuneType runeSing = RuneType.Rune1;
-
-        switch (context.action.name) 
+        if (!waitToInteract) 
         {
-            case "Sing 1": runeSing = RuneType.Rune1; AudioManager.Instance.PlaySFX("SingC"); break;
-            case "Sing 2": runeSing = RuneType.Rune2; AudioManager.Instance.PlaySFX("SingE"); break;
-            case "Sing 3": runeSing = RuneType.Rune3; AudioManager.Instance.PlaySFX("SingG"); break;
-        }
-        context.action.started += (ctx) => InteractionController.Interaction(m_Player, runeSing);
+            RuneType runeSing = RuneType.Rune1;
 
-        animator.SetTrigger("Sing");
+            switch (context.action.name) 
+            {
+                case "Sing 1": runeSing = RuneType.Rune1; break;
+                case "Sing 2": runeSing = RuneType.Rune2; break;
+                case "Sing 3": runeSing = RuneType.Rune3; break;
+            }
+
+            InteractionController.Interaction(m_Player, runeSing);
+
+            animator.SetTrigger("Sing");
+
+            waitToInteract = true;
+            StartCoroutine(Wait());
+        }     
     }
 
     public void OnLanding()
@@ -152,6 +161,12 @@ public class PlayerController : MonoBehaviour
             curretStep = m_FootStepTime;
         }
     }*/
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(interactionCD);
+        waitToInteract = false;
+    }
 }
 
 public enum PlayerType { Player1, Player2 }
