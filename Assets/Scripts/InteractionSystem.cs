@@ -29,13 +29,12 @@ public class InteractionSystem : MonoBehaviour
 
     private void RuneAnim(RuneInfo info) 
     {
-        runeSprite.color = new Color(info.runeColor.r, info.runeColor.g, info.runeColor.b, 0f);
+        runeSprite.color = info.runeColor;
         runeSprite.transform.localScale = Vector3.zero;
 
         DOTween.Sequence().SetEase(Ease.Linear).SetAutoKill(true)
             .Append(runeSprite.transform.DOScale(Vector3.one, 1))
-            .Join(runeSprite.DOFade(1, .25f))
-            .Append(runeSprite.DOFade(0, .25f))
+            .Join(runeSprite.DOFade(0, 1f))
             .OnComplete(() => {
                 runeSprite.color = new Color(1f, 1f, 1f, 0f);
                 runeSprite.transform.localScale = Vector3.zero;
