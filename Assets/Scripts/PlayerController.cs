@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField] private PlayerType m_Player;
     // Controllers
     [SerializeField] private MovementSystem2D MoveController; 
@@ -102,6 +103,7 @@ public class PlayerController : MonoBehaviour
         //m_IsJump = context.ReadValue<bool>();
         m_IsJump = context.action.triggered;
         currentIdle = idleTime;
+        AudioManager.Instance.PlaySFX("Jump"); ;
     }
 
     public void OnSinging(InputAction.CallbackContext context) 
@@ -110,9 +112,9 @@ public class PlayerController : MonoBehaviour
 
         switch (context.action.name) 
         {
-            case "Sing 1": runeSing = RuneType.Rune1; break;
-            case "Sing 2": runeSing = RuneType.Rune2; break;
-            case "Sing 3": runeSing = RuneType.Rune3; break;
+            case "Sing 1": runeSing = RuneType.Rune1; AudioManager.Instance.PlaySFX("SingC"); break;
+            case "Sing 2": runeSing = RuneType.Rune2; AudioManager.Instance.PlaySFX("SingE"); break;
+            case "Sing 3": runeSing = RuneType.Rune3; AudioManager.Instance.PlaySFX("SingG"); break;
         }
         context.action.started += (ctx) => InteractionController.Interaction(m_Player, runeSing);
 
@@ -129,11 +131,12 @@ public class PlayerController : MonoBehaviour
         // Do Something.       
     }
 
-    /*public void FootStepSFX()
+  /*  public void FootStepSFX()
     {
         curretStep -= Time.deltaTime;
         if (curretStep <= 0)
         {
+           
             if (run)
             {
                 m_FootStepInstance.setParameterByNameWithLabel("Movement Speed", "Run");

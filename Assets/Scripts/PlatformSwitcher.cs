@@ -19,6 +19,7 @@ public class PlatformSwitcher : MonoBehaviour
     public void ActiveSwitch(PlayerType player ,RuneType runeUse) 
     {
         if (runeUse == m_ActiveRune && player == m_ActivePlayer) m_Platform.SwitchState();
+        AudioManager.Instance.PlaySFX("Switch");
     }
 }
 

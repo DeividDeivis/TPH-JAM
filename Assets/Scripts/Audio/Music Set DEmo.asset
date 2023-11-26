@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6228104cb9f674539bc6c7ed37df2f1e, type: 3}
+  m_Name: Music Set DEmo
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 7504b91c4e7cee8498e4e08b8cb619a6, type: 3}
+  - {fileID: 8300000, guid: 1d71e4a7bd4ab40449078831ccf482fc, type: 3}
+  - {fileID: 8300000, guid: 252896e4d3861f1439a64da89d4ee29a, type: 3}
+  partSet: 0
