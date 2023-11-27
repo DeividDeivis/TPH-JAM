@@ -240,6 +240,7 @@ MonoBehaviour:
   blinkTime: 5
   movement: 1
   m_IsJump: 0
+  interactionCD: 2
 --- !u!114 &518075483702087705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18357fb2e2cd6bd4494ad9630a95d1e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionCD: 2
   runeSprite: {fileID: 5664513641613745563}
   playerRunes:
   - runeSinged: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
     m_ActionId: a2729e73-3ab6-4542-aa44-704f76141f1a
     m_ActionName: Player/Sing 3[/Keyboard/numpad3,/Keyboard/l,/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: ASWD
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
