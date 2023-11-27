@@ -114,11 +114,11 @@ public class PlayerController : MonoBehaviour
         {
             RuneType runeSing = RuneType.Rune1;
 
-            switch (context.action.name) 
+            switch (context.action.name)
             {
-                case "Sing 1": runeSing = RuneType.Rune1; break;
-                case "Sing 2": runeSing = RuneType.Rune2; break;
-                case "Sing 3": runeSing = RuneType.Rune3; break;
+                case "Sing 1": runeSing = RuneType.Rune1; AudioManager.Instance.PlaySFX("SingC"); break;
+                case "Sing 2": runeSing = RuneType.Rune2; AudioManager.Instance.PlaySFX("SingE"); break;
+                case "Sing 3": runeSing = RuneType.Rune3; AudioManager.Instance.PlaySFX("SingG"); break;
             }
 
             InteractionController.Interaction(m_Player, runeSing);
