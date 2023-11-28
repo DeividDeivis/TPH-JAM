@@ -45,4 +45,5 @@ public class GameManager : MonoBehaviour
     { 
         SceneManager.LoadScene(sceneNames[sceneIndex], LoadSceneMode.Single); 
     }
+
 }
