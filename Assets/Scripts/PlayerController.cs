@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private PlayerType m_Player;
+    public PlayerType m_Player;
     // Controllers
     [SerializeField] private MovementSystem2D MoveController; 
     [SerializeField] private InteractionSystem InteractionController;
@@ -166,6 +166,12 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(interactionCD);
         waitToInteract = false;
+    }
+
+    public void WinDance() 
+    {
+        movement = false;
+        animator.SetTrigger("Happy");
     }
 }
 
