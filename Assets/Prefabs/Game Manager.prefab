@@ -48,5 +48,7 @@ MonoBehaviour:
   - Menu
   - Nivel_Tutorial
   - Nivel_01
+  - Nivel_02
+  - Nivel_03
   - Thanks
   sceneIndex: 0

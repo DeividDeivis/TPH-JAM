@@ -2,7 +2,7 @@ using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     // Controllers
     [SerializeField] private MovementSystem2D MoveController; 
     [SerializeField] private InteractionSystem InteractionController;
+    [SerializeField] private InputController InputController;
 
     [Header("Character Stats")]
     [SerializeField] private float moveSpeed = 40f;
@@ -32,17 +33,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float interactionCD = 2;
     private bool waitToInteract = false;
 
-    /*[Header("Walk SFX")]
-    [SerializeField] private EventReference m_FootStepEventRef;
-    private EventInstance m_FootStepInstance;
-    [SerializeField] private float m_FootStepTime;
-    private float curretStep;*/
-
     void Start()
     {
-        //m_FootStepInstance = RuntimeManager.CreateInstance(m_FootStepEventRef);
         currentIdle = idleTime;
         currentBlink = blinkTime;
+
+        InputController.MoveInput += Move;
+        InputController.JumpInput += Jump;
+        InputController.SingInput += Singing;
     }
 
     // Update is called once per frame    
@@ -55,15 +53,7 @@ public class PlayerController : MonoBehaviour
             horizontalMove = m_MovementX * moveSpeed; // Varia entre -1 y 1. Funciona para teclado o joystick, ver Conf del proyecto.
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
             animator.SetBool("Jump", m_IsJump);
-            animator.SetBool("Landing", MoveController.m_InGround);
-
-            /*if (Mathf.Abs(horizontalMove) > 0)
-            {
-                FootStepSFX();
-                currentIdle = idleTime;
-            }
-            else
-                curretStep = 0;*/
+            animator.SetBool("Landing", MoveController.m_InGround);          
 
             //Idle Anim
             if (currentIdle > 0)
@@ -95,7 +85,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    #region NewInputSystem
+    /*public void OnMove(InputAction.CallbackContext context)
     {
         m_MovementX = context.ReadValue<float>();
     }
@@ -105,7 +96,7 @@ public class PlayerController : MonoBehaviour
         //m_IsJump = context.ReadValue<bool>();
         m_IsJump = context.action.triggered;
         currentIdle = idleTime;
-        AudioManager.Instance.PlaySFX("Jump");
+        if(MoveController.m_InGround) AudioManager.Instance.PlaySFX("Jump");
     }
 
     public void OnSinging(InputAction.CallbackContext context) 
@@ -128,39 +119,50 @@ public class PlayerController : MonoBehaviour
             waitToInteract = true;
             StartCoroutine(Wait());
         }     
+    }*/
+    #endregion
+
+    #region OldInputSystem
+    public void Move(float MovX)
+    {
+        m_MovementX = MovX;
     }
+
+    public void Jump()
+    {
+        //m_IsJump = context.ReadValue<bool>();
+        m_IsJump = true;
+        currentIdle = idleTime;
+        if (MoveController.m_InGround) AudioManager.Instance.PlaySFX("Jump");
+    }
+
+    public void Singing(int Sing)
+    {
+        if (!waitToInteract)
+        {
+            RuneType runeSing = RuneType.Rune1;
+
+            switch (Sing)
+            {
+                case 1: runeSing = RuneType.Rune1; AudioManager.Instance.PlaySFX("SingC"); break;
+                case 2: runeSing = RuneType.Rune2; AudioManager.Instance.PlaySFX("SingE"); break;
+                case 3: runeSing = RuneType.Rune3; AudioManager.Instance.PlaySFX("SingG"); break;
+            }
+
+            InteractionController.Interaction(m_Player, runeSing);
+
+            animator.SetTrigger("Sing");
+
+            waitToInteract = true;
+            StartCoroutine(Wait());
+        }
+    }
+    #endregion
 
     public void OnLanding()
     {
         animator.SetBool("Jump", false);    
     }
-
-    private void Die()
-    {
-        // Do Something.       
-    }
-
-  /*  public void FootStepSFX()
-    {
-        curretStep -= Time.deltaTime;
-        if (curretStep <= 0)
-        {
-           
-            if (run)
-            {
-                m_FootStepInstance.setParameterByNameWithLabel("Movement Speed", "Run");
-                m_FootStepInstance.start();
-                m_FootStepInstance.release();
-            }
-            else
-            {
-                m_FootStepInstance.setParameterByNameWithLabel("Movement Speed", "Walk");
-                m_FootStepInstance.start();
-                m_FootStepInstance.release();
-            }
-            curretStep = m_FootStepTime;
-        }
-    }*/
 
     private IEnumerator Wait()
     {

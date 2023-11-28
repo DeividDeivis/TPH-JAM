@@ -76,6 +76,30 @@ PrefabInstance:
       propertyPath: m_DefaultControlScheme
       value: Gamepad
       objectReference: {fileID: 0}
+    - target: {fileID: 6464223710725546777, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: _keyJump
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464223710725546777, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: _keyLeft
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464223710725546777, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: _keyRight
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464223710725546777, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: _keySing1
+      value: 257
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464223710725546777, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: _keySing2
+      value: 258
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464223710725546777, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: _keySing3
+      value: 259
+      objectReference: {fileID: 0}
     - target: {fileID: 7355361565223897040, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
