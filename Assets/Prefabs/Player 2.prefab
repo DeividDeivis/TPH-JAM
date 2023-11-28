@@ -12,6 +12,50 @@ PrefabInstance:
       propertyPath: m_Player
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[0].runeSinged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[1].runeSinged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[2].runeSinged
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[0].runeColor.g
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[0].runeColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[1].runeColor.b
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[1].runeColor.g
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[1].runeColor.r
+      value: 0.35686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[2].runeColor.b
+      value: 0.38823533
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[2].runeColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070917258527452245, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
+      propertyPath: playerRunes.Array.data[2].runeColor.r
+      value: 0.64705884
+      objectReference: {fileID: 0}
     - target: {fileID: 4475037678545542880, guid: 195c866b51b6943448d031c4a22a9059, type: 3}
       propertyPath: initialSkinName
       value: Orange

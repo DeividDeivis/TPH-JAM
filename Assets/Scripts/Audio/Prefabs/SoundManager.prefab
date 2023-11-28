@@ -187,7 +187,7 @@ MonoBehaviour:
   - name: Plat
     clip: {fileID: 8300000, guid: c1a3369f198b2d74597f6f27156c8083, type: 3}
   - name: Jump
-    clip: {fileID: 8300000, guid: 02299e76c30f690449a81f0c5724db64, type: 3}
+    clip: {fileID: 8300000, guid: 7686eba7b31c81541aab445e0bba1cc8, type: 3}
   musicSource: {fileID: 1113361075770899237}
   sfxSource: {fileID: 335507956488155880}
 --- !u!1 &8772002483460270952
