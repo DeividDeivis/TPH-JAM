@@ -73,7 +73,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 25
+  orthographic size: 30
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 7968823059751693298}
   - component: {fileID: 2253576085805136709}
   - component: {fileID: 2539728159080282949}
+  - component: {fileID: 8616266584252315086}
   m_Layer: 0
   m_Name: Mixing Camera
   m_TagString: Untagged
@@ -365,6 +366,21 @@ MonoBehaviour:
   m_FocusTarget: {fileID: 0}
   m_FocusOffset: 0
   m_Profile: {fileID: 11400000, guid: 5418b1953cf34674087d31c85b7a31e9, type: 2}
+--- !u!114 &8616266584252315086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140066793653315711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoundingShape2D: {fileID: 0}
+  m_Damping: 0.5
+  m_MaxWindowSize: 30
 --- !u!1 &5577654996346180239
 GameObject:
   m_ObjectHideFlags: 0
